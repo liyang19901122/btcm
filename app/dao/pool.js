@@ -10,4 +10,18 @@ var pool  = mysql.createPool({
   connectionLimit : 5
 });
 
+var selectSQL ="show variables like 'wait_timeout'";
+
+pool.getConnection(function (err, conn) {
+    function query(){
+        conn.query(selectSQL, function (err, res) {
+            conn.end();
+        });
+    }
+    query();
+    setInterval(query, 5000);
+});
+
+
+
 module.exports = pool;
