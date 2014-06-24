@@ -25,6 +25,12 @@ module.exports = function(app){
 
 	app.get('/getmessage',controllerMain.getAllMessage);
 
+	app.get('/edit',controllerMain.edit);
+
+	app.get('/list',controllerMain.list);
+
+	app.post('/editmessage',controllerMain.editMessage);
+
 	
 
 	//app.post('/words/mobile/search',controllerWords.allSearchPost);
